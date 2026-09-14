@@ -47,6 +47,20 @@ export const currentYear = new Date().getFullYear()
 /* Studio imagery                                                              */
 /* -------------------------------------------------------------------------- */
 
+/**
+ * The opening frame on Home.
+ *
+ * `video` is the looping footage behind the wordmark; `poster` is the still
+ * shown before it loads, and on its own if the footage is not in place yet.
+ * To use your own frame: drop the files into `public/media/home/` and point
+ * these two lines at them, e.g. '/media/home/hero-poster.jpg'.
+ */
+export const heroMedia = {
+  video: '/media/home/hero.mp4',
+  poster: '/media/home/hero-poster.svg',
+  alt: 'A pickup truck alone on an empty stretch of coastline',
+}
+
 /** The still that anchors the About split on Home and the About page. */
 export const aboutMedia = {
   src: '/media/about/studio-01.svg',

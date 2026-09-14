@@ -14,21 +14,39 @@
   inset: 0;
 }
 
-/* Darkened at both ends so the wordmark and the header stay readable
-   whatever the footage does. */
+/* Three passes, because the footage is bright sand and sky rather than a dark
+   interior — edge darkening alone would leave the white wordmark sitting on a
+   near-white ground.
+
+   1. a soft pool of shade directly under the type,
+   2. a vertical ramp that anchors the header and the scroll cue,
+   3. an edge vignette that keeps the frame cinematic. */
 .hero__scrim {
   position: absolute;
   inset: 0;
   z-index: 2;
   background:
+    radial-gradient(
+      62% 46% at 50% 47%,
+      rgba(5, 5, 5, 0.5) 0%,
+      rgba(5, 5, 5, 0.26) 55%,
+      rgba(5, 5, 5, 0) 100%
+    ),
     linear-gradient(
       180deg,
-      rgba(5, 5, 5, 0.55) 0%,
-      rgba(5, 5, 5, 0.12) 26%,
-      rgba(5, 5, 5, 0.12) 58%,
-      rgba(5, 5, 5, 0.8) 100%
+      rgba(5, 5, 5, 0.62) 0%,
+      rgba(5, 5, 5, 0.22) 28%,
+      rgba(5, 5, 5, 0.24) 62%,
+      rgba(5, 5, 5, 0.82) 100%
     ),
-    radial-gradient(120% 80% at 50% 45%, transparent 40%, rgba(5, 5, 5, 0.5) 100%);
+    radial-gradient(130% 90% at 50% 45%, transparent 38%, rgba(5, 5, 5, 0.55) 100%);
+}
+
+/* A touch of grade so dropped-in footage sits in the same world as the rest
+   of the site rather than looking like a stock plate. */
+.hero__media .video-player__poster,
+.hero__media .video-player__video {
+  filter: saturate(0.92) contrast(1.04);
 }
 
 /* --- Overlay --------------------------------------------------------------- */

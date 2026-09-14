@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import VideoPlayer from '../VideoPlayer/VideoPlayer'
 import logo from '../../assets/brand/anula-logo-white.svg'
+import { site } from '../../data/site'
 import './Hero.css'
 
 /**
@@ -11,12 +12,7 @@ import './Hero.css'
  * fades as the page scrolls — transform and opacity only, driven from a single
  * rAF-throttled listener, so the first scroll stays smooth.
  */
-export default function Hero({
-  video = '/media/home/hero.mp4',
-  poster = '/media/home/hero-poster.svg',
-  tagline = 'Stories in motion.',
-  alt = 'A pickup truck alone on an empty stretch of coastline',
-}) {
+export default function Hero({ video, poster, alt = '', tagline = site.tagline }) {
   const contentRef = useRef(null)
   const frameRef = useRef(0)
 

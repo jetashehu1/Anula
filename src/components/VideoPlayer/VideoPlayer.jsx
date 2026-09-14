@@ -24,6 +24,7 @@ export default function VideoPlayer({
 }) {
   const videoRef = useRef(null)
   const [failed, setFailed] = useState(!src)
+  const [posterFailed, setPosterFailed] = useState(false)
   const [started, setStarted] = useState(false)
 
   const isAmbient = mode === 'ambient'
@@ -46,13 +47,14 @@ export default function VideoPlayer({
     >
       {/* The poster is a real image so it can be lazy-decoded and it remains
           visible if the video never arrives. */}
-      {poster && (
+      {poster && !posterFailed && (
         <img
           className="video-player__poster"
           src={poster}
           alt={alt}
           loading={isAmbient ? 'eager' : 'lazy'}
           decoding="async"
+          onError={() => setPosterFailed(true)}
         />
       )}
 

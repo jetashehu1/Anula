@@ -10,6 +10,7 @@ import { getFeaturedProject, getSelectedProjects } from '../data/projects'
 import {
   aboutMedia,
   collage,
+  heroMedia,
   contactMedia,
   site,
   socials,
@@ -24,7 +25,7 @@ export default function Home() {
   return (
     <>
       {/* 01 — Hero ------------------------------------------------------- */}
-      <Hero />
+      <Hero video={heroMedia.video} poster={heroMedia.poster} alt={heroMedia.alt} />
 
       {/* 02 — Introduction ----------------------------------------------- */}
       <section className="intro section section--lg" id="intro">
