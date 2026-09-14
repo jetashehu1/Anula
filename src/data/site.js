@@ -57,7 +57,7 @@ export const currentYear = new Date().getFullYear()
  */
 export const heroMedia = {
   video: '/media/home/hero.mp4',
-  poster: '/media/home/hero-poster.svg',
+  poster: '/media/home/hero-poster.jpg',
   alt: 'A pickup truck alone on an empty stretch of coastline',
 }
 
