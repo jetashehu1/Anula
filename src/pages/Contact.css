@@ -1,0 +1,214 @@
+/* ==========================================================================
+   Contact
+   ========================================================================== */
+
+.contact__head {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: min(92vh, 940px);
+  padding-top: var(--header-h);
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+  overflow: hidden;
+}
+
+.contact__head-media {
+  position: absolute;
+  inset: 0;
+}
+
+.contact__head-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: contact-settle 2.6s var(--ease-cine) both;
+}
+
+@keyframes contact-settle {
+  from {
+    transform: scale(1.07);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.contact__head-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(5, 5, 5, 0.92) 0%, rgba(5, 5, 5, 0.3) 60%, rgba(5, 5, 5, 0.55) 100%),
+    linear-gradient(90deg, rgba(5, 5, 5, 0.6) 0%, transparent 60%);
+}
+
+.contact__head-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+.contact__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.24em;
+  line-height: var(--lh-tight);
+}
+
+.contact__title-serif {
+  font-size: 1.12em;
+  line-height: 0.85;
+  color: var(--anula-white-2);
+}
+
+.contact__email {
+  align-self: flex-start;
+  padding-bottom: 0.12em;
+  font-family: var(--font-serif);
+  font-size: clamp(1.375rem, 3.6vw, 2.5rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--anula-white-2);
+  border-bottom: 1px solid var(--line-strong);
+  transition:
+    color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out);
+}
+
+.contact__email:hover {
+  color: var(--anula-champagne);
+  border-color: var(--anula-champagne);
+}
+
+/* --- Details ---------------------------------------------------------------- */
+
+.contact__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.contact__block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.contact__value {
+  font-size: var(--fs-body-lg);
+  color: var(--anula-white);
+}
+
+.contact__value a {
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.contact__value a:hover {
+  color: var(--anula-champagne);
+}
+
+.contact__socials {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.contact__socials a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: var(--fs-body-lg);
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.contact__socials a:hover {
+  color: var(--anula-champagne);
+}
+
+.contact__handle {
+  font-size: var(--fs-caption);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color: var(--ink-40);
+}
+
+/* --- Brief ------------------------------------------------------------------- */
+
+.contact__brief-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--grid-gap);
+  padding-top: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.contact__brief-title {
+  grid-column: 1 / 6;
+}
+
+.contact__brief-heading {
+  font-size: var(--fs-h2);
+}
+
+.contact__brief-body {
+  grid-column: 7 / 13;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+.contact__brief-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact__brief-list li {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: var(--space-2);
+  align-items: baseline;
+  padding-block: clamp(1rem, 2vw, 1.5rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.contact__services {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.contact__services-list {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--fs-body-lg);
+  line-height: 1.4;
+  color: var(--ink-56);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 900px) {
+  .contact__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+
+  .contact__brief-title,
+  .contact__brief-body {
+    grid-column: 1 / -1;
+  }
+
+  .contact__brief-body {
+    margin-top: var(--space-3);
+  }
+}
+
+@media (max-width: 520px) {
+  .contact__brief-list li {
+    grid-template-columns: 2.5rem 1fr;
+  }
+}

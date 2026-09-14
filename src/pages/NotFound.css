@@ -1,0 +1,22 @@
+.not-found {
+  display: flex;
+  align-items: center;
+  min-height: 78vh;
+  padding-top: calc(var(--header-h) + clamp(4rem, 10vh, 7rem));
+  padding-bottom: var(--section-y);
+}
+
+.not-found__title {
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.not-found__body {
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.not-found__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}

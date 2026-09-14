@@ -1,0 +1,105 @@
+.work {
+  padding-top: calc(var(--header-h) + clamp(4rem, 12vh, 9rem));
+  padding-bottom: var(--section-y);
+}
+
+.work__eyebrow {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.work__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.28em;
+  margin-top: clamp(1.75rem, 4vw, 3rem);
+  text-transform: uppercase;
+}
+
+.work__title-serif {
+  font-size: 1.14em;
+  line-height: 0.85;
+  text-transform: none;
+  color: var(--anula-white-2);
+}
+
+/* --- Filters --------------------------------------------------------------- */
+
+.work__filters {
+  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.work__filters ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(1.25rem, 3vw, 2.75rem);
+}
+
+.work__filter {
+  position: relative;
+  padding-block: 0.35rem;
+  font-size: var(--fs-caption);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  color: var(--ink-40);
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.work__filter::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--anula-champagne);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.work__filter:hover {
+  color: var(--anula-white-2);
+}
+
+.work__filter.is-active {
+  color: var(--anula-white);
+}
+
+.work__filter.is-active::after,
+.work__filter:hover::after {
+  transform: scaleX(1);
+}
+
+.work__grid {
+  margin-top: clamp(3.5rem, 9vw, 8rem);
+}
+
+@media (max-width: 700px) {
+  .work__filters {
+    /* Let the filter row scroll sideways rather than wrap into four lines. */
+    margin-inline: calc(var(--page-x) * -1);
+    padding-inline: var(--page-x);
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .work__filters::-webkit-scrollbar {
+    display: none;
+  }
+
+  .work__filters ul {
+    flex-wrap: nowrap;
+    gap: 1.5rem;
+  }
+
+  .work__filter {
+    white-space: nowrap;
+  }
+}

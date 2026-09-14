@@ -1,0 +1,160 @@
+.hero {
+  position: relative;
+  /* `svh` keeps the frame honest on mobile browsers with collapsing chrome. */
+  height: 100vh;
+  height: 100svh;
+  min-height: 560px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+}
+
+/* Darkened at both ends so the wordmark and the header stay readable
+   whatever the footage does. */
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5, 5, 5, 0.55) 0%,
+      rgba(5, 5, 5, 0.12) 26%,
+      rgba(5, 5, 5, 0.12) 58%,
+      rgba(5, 5, 5, 0.8) 100%
+    ),
+    radial-gradient(120% 80% at 50% 45%, transparent 40%, rgba(5, 5, 5, 0.5) 100%);
+}
+
+/* --- Overlay --------------------------------------------------------------- */
+
+.hero__content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(1.25rem, 2.5vw, 2rem);
+  padding-inline: var(--page-x);
+  text-align: center;
+  will-change: transform, opacity;
+}
+
+.hero__wordmark {
+  margin: 0;
+  width: min(58vw, 640px);
+  /* Settles out of a slight over-scale on first paint. */
+  animation: hero-mark var(--dur-reveal) var(--ease-cine) 180ms both;
+}
+
+.hero__wordmark img {
+  width: 100%;
+  height: auto;
+}
+
+@keyframes hero-mark {
+  from {
+    opacity: 0;
+    transform: scale(1.06);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+.hero__tagline {
+  font-size: clamp(1.125rem, 2.1vw, 1.75rem);
+  line-height: 1.2;
+  color: var(--anula-white-2);
+  letter-spacing: 0.01em;
+  animation: hero-line var(--dur-cine) var(--ease-cine) 720ms both;
+}
+
+@keyframes hero-line {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Scroll indicator ------------------------------------------------------
+   A hairline with a highlight that falls down it, once every few seconds. */
+
+.hero__scroll {
+  position: absolute;
+  z-index: 3;
+  bottom: clamp(1.5rem, 4vh, 3rem);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
+  animation: hero-line var(--dur-cine) var(--ease-cine) 1100ms both;
+}
+
+.hero__scroll-label {
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-widest);
+  color: var(--ink-56);
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+.hero__scroll:hover .hero__scroll-label {
+  color: var(--anula-white);
+}
+
+.hero__scroll-line {
+  position: relative;
+  display: block;
+  width: 1px;
+  height: clamp(38px, 6vh, 62px);
+  background: var(--ink-24);
+  overflow: hidden;
+}
+
+.hero__scroll-line::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 45%;
+  background: linear-gradient(180deg, transparent, var(--anula-champagne));
+  animation: scroll-fall 2.8s var(--ease-in-out) infinite;
+}
+
+@keyframes scroll-fall {
+  0% {
+    transform: translateY(-100%);
+  }
+  60%,
+  100% {
+    transform: translateY(240%);
+  }
+}
+
+@media (max-width: 620px) {
+  .hero__wordmark {
+    width: min(76vw, 420px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__scroll-line::after {
+    animation: none;
+    opacity: 0.5;
+  }
+}

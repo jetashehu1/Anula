@@ -1,0 +1,78 @@
+.section-title {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 2.75rem);
+}
+
+.section-title__meta {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.section-title__row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.section-title__headline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0 0.28em;
+}
+
+/* The serif half is optically smaller than the sans at the same point size,
+   so it is nudged up and out. */
+.section-title__serif {
+  font-size: 1.14em;
+  line-height: 0.85;
+  color: var(--anula-white-2);
+  letter-spacing: -0.01em;
+}
+
+.section-title__sans {
+  text-transform: uppercase;
+}
+
+.section-title--xl .section-title__headline {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+}
+
+.section-title--display .section-title__headline {
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+}
+
+.section-title--center {
+  align-items: center;
+  text-align: center;
+}
+
+.section-title--center .section-title__row,
+.section-title--center .section-title__headline {
+  justify-content: center;
+}
+
+.section-title__action {
+  padding-bottom: 0.4em;
+  flex-shrink: 0;
+}
+
+@media (max-width: 720px) {
+  .section-title__row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .section-title__action {
+    padding-bottom: 0;
+  }
+}

@@ -1,0 +1,264 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-header);
+  transition:
+    background-color var(--dur-slow) var(--ease-out),
+    border-color var(--dur-slow) var(--ease-out),
+    backdrop-filter var(--dur-slow) var(--ease-out);
+  border-bottom: 1px solid transparent;
+}
+
+/* Past the first viewport the bar earns a ground so it stays readable over
+   photography. */
+.header.is-scrolled {
+  background-color: rgba(5, 5, 5, 0.72);
+  backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom-color: var(--line);
+}
+
+.header.is-menu-open {
+  background-color: transparent;
+  backdrop-filter: none;
+  border-bottom-color: transparent;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  height: var(--header-h);
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--page-x);
+}
+
+/* --- Wordmark -------------------------------------------------------------- */
+
+.header__logo {
+  display: block;
+  flex-shrink: 0;
+}
+
+.header__logo img {
+  width: clamp(92px, 9vw, 128px);
+  height: auto;
+  transition: opacity var(--dur-base) var(--ease-out);
+}
+
+.header__logo:hover img {
+  opacity: 0.62;
+}
+
+/* --- Desktop navigation ---------------------------------------------------- */
+
+.header__nav ul {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.75rem, 3.2vw, 3.25rem);
+}
+
+.header__nav a {
+  position: relative;
+  display: inline-block;
+  padding-block: 0.4rem;
+  font-size: var(--fs-caption);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  color: var(--ink-72);
+  transition: color var(--dur-base) var(--ease-out);
+}
+
+/* Hairline wipes in from the left. */
+.header__nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.header__nav a:hover,
+.header__nav a.is-active {
+  color: var(--anula-white);
+}
+
+.header__nav a:hover::after,
+.header__nav a:focus-visible::after,
+.header__nav a.is-active::after {
+  transform: scaleX(1);
+}
+
+.header__nav a.is-active::after {
+  background: var(--anula-champagne);
+}
+
+/* --- Menu toggle ----------------------------------------------------------- */
+
+.header__toggle {
+  display: none;
+  width: 40px;
+  height: 40px;
+  margin-right: -8px;
+  place-items: center;
+}
+
+.header__toggle-bars {
+  position: relative;
+  display: block;
+  width: 24px;
+  height: 9px;
+}
+
+.header__toggle-bars span {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--anula-white);
+  transition:
+    transform var(--dur-base) var(--ease-cine),
+    opacity var(--dur-fast) var(--ease-out);
+}
+
+.header__toggle-bars span:first-child {
+  top: 0;
+}
+
+.header__toggle-bars span:last-child {
+  bottom: 0;
+}
+
+.header.is-menu-open .header__toggle-bars span:first-child {
+  transform: translateY(4px) rotate(45deg);
+}
+
+.header.is-menu-open .header__toggle-bars span:last-child {
+  transform: translateY(-4px) rotate(-45deg);
+}
+
+/* --- Fullscreen menu ------------------------------------------------------- */
+
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-menu);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: calc(var(--header-h) + 2.5rem) var(--page-x) 2.5rem;
+  background: var(--anula-black);
+  /* `visibility` also takes the links out of the tab order when closed. */
+  visibility: hidden;
+  opacity: 0;
+  transition:
+    opacity var(--dur-base) var(--ease-out),
+    visibility 0s linear var(--dur-base);
+}
+
+.menu.is-open {
+  visibility: visible;
+  opacity: 1;
+  transition:
+    opacity var(--dur-base) var(--ease-out),
+    visibility 0s;
+}
+
+.menu__nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.25rem, 1.5vh, 1rem);
+}
+
+.menu__nav a {
+  display: block;
+  padding-block: 0.28em;
+  font-size: clamp(2.5rem, 11vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1.02;
+  letter-spacing: var(--ls-heading);
+  text-transform: uppercase;
+  color: var(--anula-white);
+  /* Each entry rises in, staggered by its index. */
+  opacity: 0;
+  transform: translate3d(0, 34px, 0);
+  transition:
+    opacity var(--dur-slow) var(--ease-cine),
+    transform var(--dur-slow) var(--ease-cine),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.menu.is-open .menu__nav a {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(120ms + var(--i, 0) * 70ms);
+}
+
+.menu__nav a.is-active {
+  color: var(--anula-champagne);
+}
+
+.menu__foot {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease-out) 380ms;
+}
+
+.menu.is-open .menu__foot {
+  opacity: 1;
+}
+
+.menu__email {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.25rem, 6vw, 1.75rem);
+  color: var(--anula-white-2);
+}
+
+.menu__socials {
+  display: flex;
+  gap: var(--space-3);
+}
+
+.menu__socials a {
+  font-size: var(--fs-caption);
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  color: var(--ink-56);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.menu__socials a:hover {
+  color: var(--anula-champagne);
+}
+
+/* --- Breakpoint ------------------------------------------------------------ */
+
+@media (max-width: 860px) {
+  .header__nav {
+    display: none;
+  }
+
+  .header__toggle {
+    display: grid;
+  }
+}
+
+@media (min-width: 861px) {
+  .menu {
+    display: none;
+  }
+}

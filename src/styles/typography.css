@@ -1,0 +1,134 @@
+/* ==========================================================================
+   ANULA — typography
+   Headlines mix upright sans with italic serif. The sans carries the
+   structure; the serif carries the feeling.
+   ========================================================================== */
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: 300;
+  line-height: var(--lh-body);
+  letter-spacing: var(--ls-body);
+  font-feature-settings: "kern" 1, "liga" 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 300;
+  margin: 0;
+}
+
+/* --- Display / headline ---------------------------------------------------
+   `.display` is the oversized editorial voice used for section openers.
+   `.display--xl` is reserved for the hero and page titles. */
+
+.display,
+.headline {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  text-transform: uppercase;
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  font-size: var(--fs-h2);
+  margin: 0;
+}
+
+.display--xl {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+}
+
+.display--display {
+  font-size: var(--fs-display);
+  line-height: var(--lh-tight);
+}
+
+/* The italic serif half of a mixed headline. It sits optically lower and
+   larger than the sans it is paired with, so it gets its own sizing. */
+.serif {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  text-transform: none;
+  letter-spacing: -0.005em;
+}
+
+.serif--italic {
+  font-style: italic;
+}
+
+.display .serif,
+.headline .serif {
+  font-size: 1.12em;
+  line-height: 0.9;
+}
+
+/* --- Supporting styles ---------------------------------------------------- */
+
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--fs-micro);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-widest);
+  color: var(--text-muted);
+  line-height: 1;
+  margin: 0;
+}
+
+.eyebrow--accent {
+  color: var(--accent);
+}
+
+.meta {
+  font-family: var(--font-sans);
+  font-size: var(--fs-caption);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-wide);
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.lead {
+  font-family: var(--font-serif);
+  font-size: var(--fs-lead);
+  font-weight: 300;
+  line-height: 1.3;
+  letter-spacing: 0;
+  color: var(--anula-white-2);
+}
+
+.body-lg {
+  font-size: var(--fs-body-lg);
+  line-height: 1.52;
+  color: var(--ink-72);
+  max-width: var(--measure);
+}
+
+.body {
+  font-size: var(--fs-body);
+  color: var(--ink-72);
+  max-width: var(--measure);
+}
+
+.index-number {
+  font-family: var(--font-sans);
+  font-size: var(--fs-caption);
+  font-weight: 400;
+  letter-spacing: var(--ls-wide);
+  color: var(--ink-40);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tighter tracking on very large sizes keeps the wordmark feel. */
+@media (min-width: 1100px) {
+  .display--display,
+  .display--xl {
+    letter-spacing: -0.04em;
+  }
+}
