@@ -57,13 +57,13 @@ export const currentYear = new Date().getFullYear()
  */
 export const heroMedia = {
   video: '/media/home/hero.mp4',
-  poster: '/media/home/hero-poster.svg',
+  poster: '/media/home/hero-poster.jpg',
   alt: 'A pickup truck alone on an empty stretch of coastline',
 }
 
 /** The still that anchors the About split on Home and the About page. */
 export const aboutMedia = {
-  src: '/media/about/studio-01.svg',
+  src: '/media/about/studio-01.jpg',
   alt: 'Operator framing a shot against a bare studio wall',
   aspect: 'portrait',
 }
