@@ -63,7 +63,7 @@ export const heroMedia = {
 
 /** The still that anchors the About split on Home and the About page. */
 export const aboutMedia = {
-  src: '/media/about/studio-01.svg',
+  src: '/media/about/studio-01.jpg',
   alt: 'Operator framing a shot against a bare studio wall',
   aspect: 'portrait',
 }
