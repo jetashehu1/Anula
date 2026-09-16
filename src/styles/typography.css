@@ -81,7 +81,7 @@ h6 {
 }
 
 .eyebrow--accent {
-  color: var(--accent);
+  color: var(--signal);
 }
 
 .meta {
@@ -114,6 +114,16 @@ h6 {
   font-size: var(--fs-body);
   color: var(--ink-72);
   max-width: var(--measure);
+}
+
+/* Section markers — the numbers that open a section, not every number on the
+   page. Card indices, credits and list numbering keep the quiet grey. */
+.section-title__meta .index-number,
+.intro__body .index-number,
+.services__head .index-number,
+.work__eyebrow .index-number,
+.about__eyebrow .index-number {
+  color: var(--signal);
 }
 
 .index-number {

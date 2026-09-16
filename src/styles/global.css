@@ -68,8 +68,8 @@ p {
 }
 
 ::selection {
-  background: var(--anula-champagne);
-  color: var(--anula-black);
+  background: var(--anula-red);
+  color: var(--anula-white);
 }
 
 :focus-visible {

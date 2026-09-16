@@ -22,7 +22,7 @@
 
 .intro__headline em {
   font-style: italic;
-  color: var(--anula-white-2);
+  color: var(--signal);
 }
 
 /* The copy sits low and right of the headline — the asymmetry is the point. */
@@ -254,6 +254,7 @@
 .contact-band__title .serif {
   font-size: 1.1em;
   line-height: 0.85;
+  color: var(--signal);
 }
 
 .contact-band__email {

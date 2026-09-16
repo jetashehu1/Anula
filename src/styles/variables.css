@@ -10,6 +10,10 @@
   --anula-white-2: #dddcd7;
   --anula-champagne: #a98d6b;
   --anula-brown: #55483d;
+  /* Used sparingly and only on type: the chapter numbers, the status labels,
+     and one word in each of the two closing headlines. Everything else stays
+     white or champagne — the red only works because it is rare. */
+  --anula-red: #d8453a;
 
   /* Tonal steps derived from the primary white. Used for rules, captions and
      anything that should sit *behind* the photography rather than on top. */
@@ -28,6 +32,7 @@
   --text: var(--anula-white);
   --text-muted: var(--ink-56);
   --accent: var(--anula-champagne);
+  --signal: var(--anula-red);
 
   /* --- Typography -------------------------------------------------------- */
   --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
