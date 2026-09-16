@@ -74,37 +74,37 @@ export const aboutMedia = {
  * touching the layout.
  */
 export const collage = [
-  { area: 'a', src: '/media/about/collage-01.svg', alt: 'Camera body on a flight case', aspect: 'portrait' },
-  { area: 'b', src: '/media/about/collage-02.svg', alt: 'Location scout frame at dusk', aspect: 'landscape' },
-  { area: 'c', src: '/media/about/collage-03.svg', alt: 'Hand-held monitor in low light', aspect: 'square' },
-  { area: 'd', src: '/media/about/collage-04.svg', alt: 'Long corridor of window light', aspect: 'tall' },
-  { area: 'e', src: '/media/about/collage-05.svg', alt: 'Contact sheet pinned to a wall', aspect: 'landscape' },
-  { area: 'f', src: '/media/about/collage-06.svg', alt: 'Reflection in a rain-covered window', aspect: 'portrait' },
+  { area: 'a', src: '/media/about/collage-01.jpg', alt: 'Camera body on a flight case', aspect: 'portrait' },
+  { area: 'b', src: '/media/about/collage-02.jpg', alt: 'Location scout frame at dusk', aspect: 'landscape' },
+  { area: 'c', src: '/media/about/collage-03.jpg', alt: 'Hand-held monitor in low light', aspect: 'square' },
+  { area: 'd', src: '/media/about/collage-04.jpg', alt: 'Long corridor of window light', aspect: 'tall' },
+  { area: 'e', src: '/media/about/collage-05.jpg', alt: 'Contact sheet pinned to a wall', aspect: 'landscape' },
+  { area: 'f', src: '/media/about/collage-06.jpg', alt: 'Reflection in a rain-covered window', aspect: 'portrait' },
 ]
 
 /** Full-bleed background behind the closing contact band. */
 export const contactMedia = {
-  src: '/media/about/contact-01.svg',
+  src: '/media/about/contact-01.jpg',
   alt: 'Empty set after wrap, lit by a single practical',
 }
 
 /** The people behind the work — used on the About page. */
 export const team = [
   {
-    name: 'Arben Shehu',
+    name: 'Arber Tahiri',
     role: 'Director / Cinematographer',
-    image: '/media/team/arben.svg',
+    image: '/media/team/arber.jpg',
   },
   {
-    name: 'Lira Krasniqi',
-    role: 'Director / Producer',
-    image: '/media/team/lira.svg',
+    name: 'Jeta Shehu',
+    role: 'Director / Photography / Post',
+    image: '/media/team/jeta.jpg',
   },
-  {
-    name: 'Dea Berisha',
-    role: 'Photography / Post',
-    image: '/media/team/dea.svg',
-  },
+  // {
+  //   name: 'Dea Berisha',
+  //   role: 'Photography / Post',
+  //   image: '/media/team/dea.svg',
+  // },
 ]
 
 export default site
