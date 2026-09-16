@@ -240,8 +240,14 @@ p {
 
 /* --- Page transition ------------------------------------------------------ */
 
+/* `backwards`, not `both`. `forwards` would retain the final keyframe, and a
+   retained `transform: none` still computes to an identity matrix — enough to
+   make this element the containing block for every `position: fixed`
+   descendant, which strands the Services hover preview thousands of pixels up
+   the page. The last keyframe is the element's natural state anyway, so there
+   is nothing to retain. */
 .page-fade {
-  animation: page-in var(--dur-slow) var(--ease-cine) both;
+  animation: page-in var(--dur-slow) var(--ease-cine) backwards;
 }
 
 @keyframes page-in {
